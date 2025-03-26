@@ -34,7 +34,8 @@ HEADERS =\
  magma.h\
  _hypre_onedpl.hpp\
  _hypre_utilities.h\
- _hypre_utilities.hpp
+ _hypre_utilities.hpp\
+ lap_utils.h
 
 FILES =\
  F90_HYPRE_error.c\
@@ -67,7 +68,8 @@ FILES =\
  state.c\
  threading.c\
  timer.c\
- timing.c
+ timing.c\
+ lap_utils.c
 
 CUFILES=\
  device_utils.c\
@@ -95,12 +97,14 @@ all: libHYPRE_utilities${HYPRE_LIB_SUFFIX}
 	cp -fR $(srcdir)/_hypre_utilities.h $(HYPRE_BUILD_DIR)/include
 	cp -fR $(srcdir)/_hypre_utilities.hpp $(HYPRE_BUILD_DIR)/include
 	cp -fR $(srcdir)/fortran*.h $(HYPRE_BUILD_DIR)/include
+	cp -fR $(srcdir)/lap_utils.h $(HYPRE_INC_INSTALL)
 #	cp -fR libHYPRE* $(HYPRE_BUILD_DIR)/lib
 
 install: libHYPRE_utilities${HYPRE_LIB_SUFFIX}
 	cp -fR $(srcdir)/HYPRE_*.h $(HYPRE_INC_INSTALL)
 	cp -fR $(srcdir)/_hypre_utilities.h $(HYPRE_INC_INSTALL)
 	cp -fR $(srcdir)/fortran*.h $(HYPRE_INC_INSTALL)
+	cp -fR $(srcdir)/lap_utils.h $(HYPRE_INC_INSTALL)
 #	cp -fR libHYPRE* $(HYPRE_LIB_INSTALL)
 
 clean:

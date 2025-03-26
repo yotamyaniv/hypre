@@ -130,6 +130,10 @@ distclean: clean
 
 # C
 
+ij_print: ij_print.o
+	@echo  "Building" $@ "... "
+	${LINK_CC} -o $@ $@.o ${LFLAGS}
+
 ij: ij.o
 	@echo  "Building" $@ "... "
 	${LINK_CC} -o $@ $< ${LFLAGS}
